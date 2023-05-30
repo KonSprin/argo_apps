@@ -1,0 +1,6 @@
+apiVersion: v2
+name: up_applications
+description: App of Apps for UP applications
+type: application
+version: 0.1
+appVersion: 0.1
