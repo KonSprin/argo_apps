@@ -7,7 +7,7 @@ metadata:
 spec:
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: k8s/kustomize/rancher
+    path: kustomize/rancher
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
