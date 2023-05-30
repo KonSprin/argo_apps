@@ -1,5 +1,5 @@
 # Global Values
-repoUrl: 'https://github.com/CiscoAandI/up-eks-shared-services.git'
+repoUrl: 'https://github.com/KonSprin/argo_apps.git'
 targetRevision: HEAD
 
 rancher:
