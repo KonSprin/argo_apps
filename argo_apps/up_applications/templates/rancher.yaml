@@ -3,8 +3,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: rancher
-  namespace: cattle-system
+  namespace: argocd
 spec:
+  project: {{ .Values.argoProject | default "default" }}
   source:
     repoURL: {{ .Values.repoUrl }}
     path: kustomize/rancher
@@ -13,10 +14,13 @@ spec:
       values: |
         {{- toYaml .Values.rancher | nindent 10 }}
       parameters:
-      - name: "hostname"
-        value: "devunifiedplatform.com"
-      - name: "tls"
-        value: "external"
+        - name: "hostname"
+          value: "devunifiedplatform.com"
+        - name: "tls"
+          value: "external"
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: cattle-system
   syncPolicy:
     automated:
       prune: true
@@ -28,7 +32,4 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 1m
-  destination:
-    server: 'https://kubernetes.default.svc'
-  project: {{ .Values.argoProject | default "default" }}
 {{- end -}}
