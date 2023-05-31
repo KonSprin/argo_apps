@@ -3,5 +3,5 @@ repoUrl: 'https://github.com/KonSprin/argo_apps.git'
 targetRevision: HEAD
 
 rancher:
-  enable: false
+  enable: true
   createNamespace: true
