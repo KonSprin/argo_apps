@@ -6,7 +6,7 @@ helmCharts:
   - name: rancher
     repo: https://releases.rancher.com/server-charts/stable
     version: 2.7.3
-    releaseName: rancher
+    releaseName: rancher-stable
     namespace: cattle-system
     includeCRDs: true
     valuesInline:
