@@ -10,14 +10,6 @@ spec:
     repoURL: {{ .Values.repoUrl }}
     path: kustomize/rancher
     targetRevision: {{ .Values.targetRevision }}
-    # helm:
-    #   values: |
-    #     {{- toYaml .Values.rancher | nindent 10 }}
-    #   parameters:
-    #     - name: "hostname"
-    #       value: "devunifiedplatform.com"
-    #     - name: "tls"
-    #       value: "external"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: cattle-system
