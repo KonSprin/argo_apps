@@ -1,0 +1,33 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+
+helmCharts:
+  - name: rancher
+    repo: https://releases.rancher.com/server-charts/stable
+    version: 2.7.3
+    releaseName: rancher
+    namespace: cattle-system
+    includeCRDs: true
+    valuesInline:
+      hostname: "devunifiedplatform.com"
+      tls: "external"
+    #   syncSecret:
+    #     enabled: true
+    #   enableSecretRotation: true
+    #   linux:
+    #     tolerations:
+    #       - operator: Exists
+    #         effect: NoSchedule
+    #     affinity:
+    #       nodeAffinity:
+    #         requiredDuringSchedulingIgnoredDuringExecution:
+    #           nodeSelectorTerms:
+    #             - matchExpressions:
+    #                 - key: kf-notebooks
+    #                   operator: DoesNotExist
+
+patchesStrategicMerge:
+  - patches/ingress.yaml
+  - patches/service.yaml
+ 
