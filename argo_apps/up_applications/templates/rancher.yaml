@@ -15,7 +15,7 @@ spec:
         {{- toYaml .Values.rancher | nindent 10 }}
       parameters:
         - name: "hostname"
-          value: "devunifiedplatform.com"
+          value: "rancher.devunifiedplatform.com"
         - name: "tls"
           value: "external"
   destination:
