@@ -8,28 +8,9 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    cert-manager.io/issuer: rancher
-    cert-manager.io/issuer-kind: Issuer
-    field.cattle.io/publicEndpoints: '[{"addresses":[""],"port":443,"protocol":"HTTPS","serviceName":"cattle-system:rancher","ingressName":"cattle-system:rancher","hostname":"devunifiedplatform.com","allNodes":false}]'
-    meta.helm.sh/release-name: rancher
-    meta.helm.sh/release-namespace: cattle-system
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
-  creationTimestamp: "2023-05-19T11:20:26Z"
-  finalizers:
-  - ingress.k8s.aws/resources
-  generation: 3
-  labels:
-    app: rancher
-    app.kubernetes.io/managed-by: Helm
-    chart: rancher-2.7.3
-    heritage: Helm
-    release: rancher
-  name: rancher
-  namespace: cattle-system
-  resourceVersion: "902471"
-  uid: 1d82aa37-9318-49aa-9378-b9040d9428f2
+
+  name: rancher-stable
+  # namespace: cattle-system
 spec:
   ingressClassName: alb
   rules:
@@ -38,7 +19,7 @@ spec:
       paths:
       - backend:
           service:
-            name: rancher
+            name: rancher-stable
             port:
               name: http
         pathType: ImplementationSpecific
