@@ -10,7 +10,6 @@ spec:
     targetRevision: HEAD
     path: chart
     helm:
-      release: add-ons
       values: |
         cert-manager:
           enable: true
