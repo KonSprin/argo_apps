@@ -3,8 +3,7 @@ kind: Kustomization
 namespace: argocd
 
 helmCharts:
-- includeCRDs: true
-  name: argocd
+- name: argocd
   namespace: argocd
   repo: https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
 
