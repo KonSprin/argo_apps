@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: argocd
+    path: kustomize/argocd
     targetRevision: HEAD
   project: default
   syncPolicy:
