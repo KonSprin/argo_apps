@@ -1,0 +1,7 @@
+resources:
+  - ../../base
+
+namePrefix: local-
+
+patches:
+- path: patches/ingress.yaml
