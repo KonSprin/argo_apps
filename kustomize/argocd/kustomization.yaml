@@ -6,7 +6,7 @@ helmCharts:
 - includeCRDs: true
   name: argocd
   namespace: argocd
-  repo: https://github.com/argoproj/argo-helm.git
+  repo: https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
 
 patches:
 - path: patches/configmap.yaml
