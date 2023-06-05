@@ -1,3 +1,4 @@
+{{- if and (.Values.rancher) (.Values.rancher.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -6,13 +7,14 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/aws-samples/eks-blueprints-add-ons.git
-    targetRevision: HEAD
+    repoURL: 'https://github.com/aws-samples/eks-blueprints-add-ons.git'
     path: chart
+    targetRevision: HEAD
     helm:
-      values: |
-        cert-manager:
-          enable: true
+      parameters:
+        - name: certManager.enable
+          value: 'true'
   destination:
-    server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
+    server: "https://kubernetes.default.svc"
     namespace: argocd
+{{- end -}}
