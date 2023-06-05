@@ -1,14 +1,15 @@
+{{- if and (.Values.addons) (.Values.addons.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: add-ons
   namespace: argocd
 spec:
-  project: default
+  project: {{ .Values.argoProject | default "default" }}
   source:
-    repoURL: https://github.com/aws-samples/eks-blueprints-add-ons.git
+    repoURL: {{ .Values.repoUrl }}
     targetRevision: HEAD
-    path: chart
+    path: kustomize/addons
     helm:
       release: add-ons
       values: |
@@ -17,3 +18,15 @@ spec:
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
     namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace={{ .Values.addons.createNamespace }}
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}

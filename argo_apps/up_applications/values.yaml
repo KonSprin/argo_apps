@@ -5,3 +5,7 @@ targetRevision: HEAD
 rancher:
   enable: true
   createNamespace: true
+
+addons:
+  enable: true
+  createNamespace: true
