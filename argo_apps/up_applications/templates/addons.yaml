@@ -10,11 +10,6 @@ spec:
     repoURL: {{ .Values.repoUrl }}
     targetRevision: HEAD
     path: kustomize/addons
-    helm:
-      release: add-ons
-      values: |
-        cert-manager:
-          enable: true
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
     namespace: argocd
