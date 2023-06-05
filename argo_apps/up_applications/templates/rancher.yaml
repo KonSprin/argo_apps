@@ -10,7 +10,6 @@ spec:
     repoURL: {{ .Values.repoUrl }}
     path: kustomize/rancher
     targetRevision: {{ .Values.targetRevision }}
-  app: add-ons
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: cattle-system
