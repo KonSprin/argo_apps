@@ -3,9 +3,9 @@ kind: Kustomization
 namespace: argocd
 
 helmCharts:
-- name: argocd
+- name: argo-cd
   namespace: argocd
-  repo: https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+  repo: https://argoproj.github.io/argo-helm
 
 patches:
 - path: patches/configmap.yaml
