@@ -8,8 +8,8 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://argoproj.github.io/argo-helm
-    path: chart
+    repoURL: https://github.com/argoproj/argo-helm.git
+    path: charts
     targetRevision: HEAD
   project: default
   syncPolicy:
