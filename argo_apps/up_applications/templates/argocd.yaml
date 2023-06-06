@@ -8,9 +8,9 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    repoURL: {{ .Values.repoUrl }}
-    path: kustomize/argocd
-    targetRevision: jarilio
+    repoURL: https://argoproj.github.io/argo-helm
+    path: chart
+    targetRevision: HEAD
   project: default
   syncPolicy:
     automated:
