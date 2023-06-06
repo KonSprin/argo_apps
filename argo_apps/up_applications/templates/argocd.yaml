@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: {{ .Values.repoUrl }}
     path: kustomize/argocd
-    targetRevision: HEAD
+    targetRevision: jarilio
   project: default
   syncPolicy:
     automated:
