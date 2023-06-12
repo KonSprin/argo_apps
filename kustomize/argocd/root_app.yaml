@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-cd
+  name: test
   namespace: argocd
 spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/argoproj/argo-helm.git
-    path: charts/argo-cd
-    targetRevision: HEAD
+    repoURL: https://github.com/KonSprin/argo_apps.git
+    path: argo_apps/up_applications
+    targetRevision: jarilio
   project: default
   syncPolicy:
     automated:

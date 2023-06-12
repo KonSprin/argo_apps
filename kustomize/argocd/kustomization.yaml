@@ -7,5 +7,7 @@ helmCharts:
   namespace: argocd
   repo: https://argoproj.github.io/argo-helm
 
+resources:
+  - root_app.yaml
 patches:
 - path: patches/configmap.yaml
