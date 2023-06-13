@@ -14,7 +14,8 @@ spec:
   project: default
   syncPolicy:
     automated:
-      retries: 5           # Maximum number of retries on error
-      retryBackoffSeconds: 10  # Delay in seconds between retries
+      retry:
+        limit: 2
+        backoff: 10
       prune: true
       selfHeal: true
